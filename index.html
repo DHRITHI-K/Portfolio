@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhrithi K — AI & Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">DK</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#resume">Resume</a></li> 
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Open to Work · Bengaluru · June 2026</div>
+    <div class="hero-name">Hi, I'm <span>Dhrithi K.</span> 👋</div>
+    <h1>Building <em>intelligent</em><br>systems that matter</h1>
+    <p class="hero-sub">B.Tech graduate in Data Science & AI from IIIT Dharwad. I design and engineer AI/ML solutions — from RAG pipelines to full-stack apps people actually use.</p>
+    <!-- <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View my work ↓</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div> -->
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View my work ↓</a>
+      <a href="Dhrithi_Resume.pdf" target="_blank" class="btn btn-outline">View Resume</a>
+      <!-- <a href="Dhrithi_Resume.pdf" download class="btn btn-outline">Download</a> -->
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div>
+
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-label">About me</div>
+  <h2>Engineer. Builder. Curious mind.</h2>
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>I'm <strong>Dhrithi K</strong>, a Data Science and AI graduate from IIIT Dharwad (Class of 2026), based in Mysuru, Karnataka. I'm actively seeking AI/ML Engineering and Software Engineering roles in Bengaluru.</p>
+      <p>My work sits at the intersection of <strong>AI research and practical software engineering</strong> — I enjoy building things that are both technically rigorous and genuinely useful. From RAG-based chatbots to real-time collaborative apps, I care about the full stack.</p>
+      <p>Alongside my core projects, I'm currently building two independent apps: <strong>Subscription Graveyard</strong> and a <strong>Neighborhood Lending Library</strong> — because the best way to sharpen product thinking is to ship your own ideas.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Projects built end-to-end</div></div>
+      <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">AI/ML technologies mastered</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Industry simulations completed</div></div>
+      <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Apps in active development</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label">Work</div>
+  <h2>Projects I'm proud of</h2>
+  <p class="section-intro">Each project is built end-to-end — from architecture decisions to deployment.</p>
+  <div class="projects-grid fade-in">
+    <div class="project-card">
+      <div class="project-number">001</div><span class="project-status status-live">Complete</span>
+      <div class="project-icon">📚</div>
+      <div class="project-name">ChapterChat</div>
+      <p class="project-desc">RAG-based chatbot for PDF document Q&amp;A. LangChain pipelines, ChromaDB vector store, and local LLM inference via Ollama (llama3) — zero API costs, full semantic retrieval.</p>
+      <div class="project-tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Ollama</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-number">002</div><span class="project-status status-live">Complete</span>
+      <div class="project-icon">🎣</div>
+      <div class="project-name">Phishing Detection Chatbot</div>
+      <p class="project-desc">ML classifier for phishing URLs with explainable outputs via SHAP/LIME. Containerized with Docker, CI/CD via Jenkins, REST APIs with full precision/recall/F1 metrics.</p>
+      <div class="project-tags"><span class="tag">Scikit-learn</span><span class="tag">SHAP/LIME</span><span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">Flask</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-number">003</div><span class="project-status status-live">Active Development</span>
+      <div class="project-icon">🧑‍💻</div>
+      <div class="project-name">Virtual Study Room</div>
+      <p class="project-desc">Real-time collaborative platform with video, audio, and chat. WebRTC peer-to-peer, Firebase signaling, Node.js backend with latency-optimized state management.</p>
+      <div class="project-tags"><span class="tag">React</span><span class="tag">WebRTC</span><span class="tag">Firebase</span><span class="tag">Node.js</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-number">004</div><span class="project-status status-live">Complete</span>
+      <div class="project-icon">🏥</div>
+      <div class="project-name">Healthcare AI Chatbot</div>
+      <p class="project-desc">Symptom-based conversational assistant using fine-tuned transformer models on domain-specific medical data. Integrated with a web interface for real-time interaction.</p>
+      <div class="project-tags"><span class="tag">Hugging Face</span><span class="tag">Fine-tuning</span><span class="tag">NLP</span><span class="tag">Python</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-number">005</div><span class="project-status status-building">Building</span>
+      <div class="project-icon">💸</div>
+      <div class="project-name">Subscription Graveyard</div>
+      <p class="project-desc">Scans bank SMS and emails to surface all active subscriptions — including the forgotten ones. NLP-based merchant extraction, OAuth2 integration, spend analytics dashboard.</p>
+      <div class="project-tags"><span class="tag">FastAPI</span><span class="tag">NLP</span><span class="tag">OAuth2</span><span class="tag">React</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-number">006</div><span class="project-status status-building">Building</span>
+      <div class="project-icon">🔧</div>
+      <div class="project-name">Neighborhood Lending Library</div>
+      <p class="project-desc">Hyperlocal P2P platform for borrowing tools, books, and gadgets. Geo-based discovery, trust &amp; reputation system, real-time item availability — built for actual neighbors.</p>
+      <div class="project-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Firebase</span><span class="tag">Geolocation</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <h2>What I work with</h2>
+  <p class="section-intro">A toolkit built across AI/ML research, backend engineering, and frontend development.</p>
+  <div class="skills-grid fade-in">
+    <div class="skill-group">
+      <div class="skill-group-title">AI &amp; Machine Learning</div>
+      <div class="skill-pills"><span class="skill-pill">LangChain</span><span class="skill-pill">Hugging Face</span><span class="skill-pill">RAG</span><span class="skill-pill">ChromaDB</span><span class="skill-pill">TensorFlow</span><span class="skill-pill">PyTorch</span><span class="skill-pill">Scikit-learn</span><span class="skill-pill">SHAP / LIME</span><span class="skill-pill">Ollama</span><span class="skill-pill">Fine-tuning</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Backend &amp; APIs</div>
+      <div class="skill-pills"><span class="skill-pill">Python</span><span class="skill-pill">FastAPI</span><span class="skill-pill">Flask</span><span class="skill-pill">Node.js</span><span class="skill-pill">Express</span><span class="skill-pill">REST APIs</span><span class="skill-pill">PostgreSQL</span><span class="skill-pill">MongoDB</span><span class="skill-pill">SQL</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Frontend &amp; Tools</div>
+      <div class="skill-pills"><span class="skill-pill">React</span><span class="skill-pill">JavaScript</span><span class="skill-pill">WebRTC</span><span class="skill-pill">Firebase</span><span class="skill-pill">Git</span><span class="skill-pill">Docker</span><span class="skill-pill">Jenkins</span><span class="skill-pill">CI/CD</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="section-label">Training</div>
+  <h2>Certifications &amp; Simulations</h2>
+  <p class="section-intro">Industry simulations and coursework that complement my project work.</p>
+  <div class="certs-grid fade-in">
+    <div class="cert-card"><div class="cert-icon" style="background:rgba(79,195,161,0.1);">🏦</div><div class="cert-name">Data Science Job Simulation</div><div class="cert-org">Lloyds Banking Group · Forage</div><div class="cert-date">March 2026</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.75rem;font-weight:300;">Customer churn prediction with Random Forest (ROC-AUC: 0.82). Feature engineering, hyperparameter tuning, feature importance analysis.</p></div>
+    <div class="cert-card"><div class="cert-icon" style="background:rgba(124,106,247,0.1);">🔐</div><div class="cert-name">Cybersecurity Job Simulation</div><div class="cert-org">Deloitte Australia · Forage</div><div class="cert-date">March 2026</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.75rem;font-weight:300;">Analyzed web activity logs, identified suspicious behavior, supported threat detection and incident investigation workflows.</p></div>
+    <div class="cert-card"><div class="cert-icon" style="background:rgba(245,132,90,0.1);">📖</div><div class="cert-name">NLP Specialization</div><div class="cert-org">Coursera · deeplearning.ai</div><div class="cert-date">2023</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.75rem;font-weight:300;">Sequence models, attention mechanisms, transformers, and applied NLP tasks across classification and generation.</p></div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="section-label">Background</div>
+  <h2>Experience & Education</h2>
+  <p class="section-intro">A quick overview of my academic journey and hands-on engineering experience.</p>
+
+  <div class="resume-grid fade-in">
+    
+    <div class="resume-column">
+      <h3 class="resume-col-title">Experience</h3>
+      
+      <div class="resume-item">
+        <div class="resume-dot"></div>
+        <div class="resume-date">2026 — Present</div>
+        <h4 class="resume-role">Independent AI/ML Builder</h4>
+        <div class="resume-org">Bengaluru, Karnataka</div>
+        <p class="resume-desc">Architecting and deploying full-stack AI applications, including RAG-based document retrieval systems and hyper-local peer-to-peer platforms.</p>
+      </div>
+
+      <div class="resume-item">
+        <div class="resume-dot"></div>
+        <div class="resume-date">March 2026</div>
+        <h4 class="resume-role">Data Science & Cybersecurity Simulations</h4>
+        <div class="resume-org">Forage (Lloyds Banking Group & Deloitte)</div>
+        <p class="resume-desc">Executed customer churn prediction models (Random Forest) and analyzed web activity logs for threat detection workflows.</p>
+      </div>
+    </div>
+
+    <div class="resume-column">
+      <h3 class="resume-col-title">Education</h3>
+      
+      <div class="resume-item">
+        <div class="resume-dot"></div>
+        <div class="resume-date">2022 — 2026</div>
+        <h4 class="resume-role">B.Tech in Data Science & AI</h4>
+        <div class="resume-org">IIIT Dharwad</div>
+        <p class="resume-desc">Core coursework: Machine Learning, Deep Learning, Natural Language Processing, Data Structures & Algorithms, and Software Engineering.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="resume-actions fade-in" style="gap: 1rem; flex-wrap: wrap;">
+    <a href="Dhrithi_Resume.pdf" target="_blank" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+      View Resume
+    </a>
+
+    <a href="Dhrithi_Resume.pdf" download class="btn btn-outline">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+      Download PDF
+    </a>
+  </div>
+
+<!-- <section id="blog">
+  <div class="section-label">Writing</div>
+  <h2>From the blog</h2>
+  <p class="section-intro">Thoughts on building AI systems, navigating the job search, and making sense of the technology I work with every day.</p>
+  <div class="blog-grid fade-in">
+
+    <a href="blog-chaperchat-rag.html" class="blog-card">
+      <div class="blog-banner blog-banner-1">🧠</div>
+      <div class="blog-body">
+        <div class="blog-meta">
+          <span class="blog-cat cat-technical">Technical</span>
+          <span class="blog-date">June 2026</span>
+        </div>
+        <div class="blog-title">How I Built a RAG Chatbot That Doesn't Cost a Rupee to Run</div>
+        <p class="blog-excerpt">The full story behind ChapterChat — why I swapped OpenAI for Ollama, how I structured the LangChain pipeline, and what I'd do differently now.</p>
+        <div class="blog-read">
+          <span class="blog-read-time">8 min read</span>
+          <span class="blog-arrow">↗</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-job-search.html" class="blog-card">
+      <div class="blog-banner blog-banner-2">🗺️</div>
+      <div class="blog-body">
+        <div class="blog-meta">
+          <span class="blog-cat cat-journey">Journey</span>
+          <span class="blog-date">June 2026</span>
+        </div>
+        <div class="blog-title">What No One Tells You About the AI Job Search as a Fresher</div>
+        <p class="blog-excerpt">I applied to Deloitte, Cognizant, CGI and a bunch of Bengaluru startups — all without internship experience. Here's what actually worked.</p>
+        <div class="blog-read">
+          <span class="blog-read-time">6 min read</span>
+          <span class="blog-arrow">↗</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-rag-explained.html" class="blog-card">
+      <div class="blog-banner blog-banner-3">💡</div>
+      <div class="blog-body">
+        <div class="blog-meta">
+          <span class="blog-cat cat-explainer">Explainer</span>
+          <span class="blog-date">June 2026</span>
+        </div>
+        <div class="blog-title">RAG, Explained Like You're a Developer Who's Never Used It</div>
+        <p class="blog-excerpt">Retrieval-Augmented Generation sounds fancy. It's not. Here's a plain-English breakdown of how it works, with real code examples from my own projects.</p>
+        <div class="blog-read">
+          <span class="blog-read-time">7 min read</span>
+          <span class="blog-arrow">↗</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section> -->
+
+<section id="blog">
+  <div class="section-label">Writing</div>
+  <h2>From the blog</h2>
+  <p class="section-intro">Thoughts on building AI systems, navigating the job search, and making sense of the technology I work with every day.</p>
+  <div class="blog-grid fade-in">
+
+    <a href="https://code-coffee-curiosity.hashnode.dev/how-i-built-a-rag-chatbot-that-doesnt-cost-a-rupee-to-run" target="_blank" class="blog-card">
+      <div class="blog-banner blog-banner-1">🧠</div>
+      <div class="blog-body">
+        <div class="blog-meta">
+          <span class="blog-cat cat-technical">Technical</span>
+          <span class="blog-date">June 2026</span>
+        </div>
+        <div class="blog-title">How I Built a RAG Chatbot That Doesn't Cost a Rupee to Run</div>
+        <p class="blog-excerpt">The full story behind ChapterChat — why I swapped OpenAI for Ollama, how I structured the LangChain pipeline, and what I'd do differently now.</p>
+        <div class="blog-read">
+          <span class="blog-read-time">8 min read</span>
+          <span class="blog-arrow">↗</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#blog" class="blog-card" style="cursor: default;">
+      <div class="blog-banner blog-banner-2" style="opacity: 0.5;">🗺️</div>
+      <div class="blog-body">
+        <div class="blog-meta">
+          <span class="blog-cat cat-journey">Journey</span>
+          <span class="blog-date">Publishing Soon</span>
+        </div>
+        <div class="blog-title" style="color: var(--muted);">What No One Tells You About the AI Job Search as a Fresher</div>
+        <p class="blog-excerpt">I applied to Deloitte, Cognizant, CGI and a bunch of Bengaluru startups — all without internship experience. Here's what actually worked.</p>
+        <div class="blog-read">
+          <span class="blog-read-time">Drafting...</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#blog" class="blog-card" style="cursor: default;">
+      <div class="blog-banner blog-banner-3" style="opacity: 0.5;">💡</div>
+      <div class="blog-body">
+        <div class="blog-meta">
+          <span class="blog-cat cat-explainer">Explainer</span>
+          <span class="blog-date">Publishing Soon</span>
+        </div>
+        <div class="blog-title" style="color: var(--muted);">RAG, Explained Like You're a Developer Who's Never Used It</div>
+        <p class="blog-excerpt">Retrieval-Augmented Generation sounds fancy. It's not. Here's a plain-English breakdown of how it works, with real code examples from my own projects.</p>
+        <div class="blog-read">
+          <span class="blog-read-time">Drafting...</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-wrapper fade-in">
+    <h2>Let's build something</h2>
+    <p class="contact-sub">I'm actively looking for AI/ML Engineering and Software Engineering roles in Bengaluru. Always happy to connect.</p>
+    <div class="contact-links">
+      <a href="mailto:dhrithik2004@gmail.com" class="contact-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>dhrithik2004@gmail.com</a>
+      <a href="https://linkedin.com/in/dhrithi-k-17024b25a" target="_blank" class="contact-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      <a href="https://github.com/DHRITHI-K" target="_blank" class="contact-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>GitHub</a>
+      <a href="tel:+918660327346" class="contact-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+91 86603 27346</a>
+    </div>
+  </div>
+</section>
+
+<footer><p>Dhrithi K &mdash; IIIT Dharwad &middot; B.Tech Data Science &amp; AI &middot; Class of 2026</p></footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

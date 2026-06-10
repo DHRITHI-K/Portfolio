@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAG, Explained Like You're a Developer Who's Never Used It — Dhrithi K</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0a0a0f; --surface:#12121a; --surface2:#1a1a26; --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.12); --text:#f0efe8; --muted:#8a8a9a; --accent:#7c6af7; --accent2:#4fc3a1; --accent3:#f5845a; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 4rem; background: rgba(10,10,15,0.85); backdrop-filter: blur(16px); border-bottom: 0.5px solid var(--border); }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text); text-decoration: none; }
+  .nav-back { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  .blog-hero { padding: 9rem 4rem 4rem; max-width: 760px; margin: 0 auto; }
+  .blog-meta-top { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .blog-cat { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 3px; text-transform: uppercase; background: rgba(79,195,161,0.15); color: var(--accent2); }
+  .blog-date, .blog-read-time { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); }
+  .blog-sep { color: var(--border2); }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  .blog-lede { font-size: 1.1rem; color: var(--muted); line-height: 1.75; font-weight: 300; border-left: 2px solid var(--accent2); padding-left: 1.25rem; margin-bottom: 3rem; }
+  .blog-divider { height: 0.5px; background: var(--border); margin: 3rem 0; }
+  article { max-width: 760px; margin: 0 auto; padding: 0 4rem 6rem; }
+  article h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; letter-spacing: -0.02em; margin: 2.5rem 0 1rem; color: var(--text); }
+  article h3 { font-size: 0.8rem; font-weight: 500; margin: 2rem 0 0.6rem; color: var(--accent2); letter-spacing: 0.04em; text-transform: uppercase; }
+  article p { color: var(--muted); font-weight: 300; margin-bottom: 1.2rem; font-size: 0.97rem; line-height: 1.85; }
+  article p strong { color: var(--text); font-weight: 500; }
+  article ul { color: var(--muted); font-weight: 300; font-size: 0.97rem; line-height: 1.85; margin-bottom: 1.2rem; padding-left: 1.5rem; }
+  article li { margin-bottom: 0.5rem; }
+  article li strong { color: var(--text); font-weight: 500; }
+  pre { background: var(--surface2); border: 0.5px solid var(--border2); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; overflow-x: auto; }
+  code { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: var(--accent2); line-height: 1.6; }
+  p code { background: var(--surface2); border: 0.5px solid var(--border); border-radius: 4px; padding: 1px 6px; color: var(--accent3); font-size: 0.85em; }
+  .callout { background: var(--surface); border: 0.5px solid var(--border2); border-left: 3px solid var(--accent2); border-radius: 0 10px 10px 0; padding: 1.1rem 1.4rem; margin: 1.5rem 0; }
+  .callout p { margin: 0; font-size: 0.92rem; }
+  /* Visual pipeline diagram */
+  .pipeline { display: flex; align-items: center; gap: 0; margin: 2rem 0; overflow-x: auto; padding: 0.5rem 0; }
+  .pipe-step { background: var(--surface2); border: 0.5px solid var(--border2); border-radius: 10px; padding: 0.9rem 1.1rem; text-align: center; min-width: 110px; flex-shrink: 0; }
+  .pipe-step .pipe-icon { font-size: 1.4rem; display: block; margin-bottom: 0.3rem; }
+  .pipe-step .pipe-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.06em; display: block; }
+  .pipe-step .pipe-desc { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; display: block; }
+  .pipe-arrow { color: var(--muted); font-size: 1.1rem; padding: 0 0.5rem; flex-shrink: 0; }
+  .blog-footer { max-width: 760px; margin: 0 auto; padding: 0 4rem 6rem; }
+  .blog-footer-inner { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .author-info p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+  .author-info strong { color: var(--text); font-size: 0.92rem; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--accent); text-decoration: none; border: 0.5px solid rgba(124,106,247,0.3); padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.2s; }
+  .back-link:hover { background: rgba(124,106,247,0.1); }
+  footer { text-align: center; padding: 2rem 4rem; border-top: 0.5px solid var(--border); color: var(--muted); font-size: 0.8rem; }
+  @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .blog-hero, article, .blog-footer { padding-left: 1.5rem; padding-right: 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="Dhrithi_Portfolio_Final.html" class="nav-logo">DK</a>
+  <a href="Dhrithi_Portfolio_Final.html#blog" class="nav-back">← Back to portfolio</a>
+</nav>
+
+<div class="blog-hero">
+  <div class="blog-meta-top">
+    <span class="blog-cat">Explainer</span>
+    <span class="blog-sep">·</span>
+    <span class="blog-date">June 2026</span>
+    <span class="blog-sep">·</span>
+    <span class="blog-read-time">7 min read</span>
+  </div>
+  <h1>RAG, Explained Like You're a Developer Who's Never Used It</h1>
+  <p class="blog-lede">Retrieval-Augmented Generation sounds fancy. It's not. Here's a plain-English breakdown of how it works, why it exists, and real code examples from my own projects — no ML PhD required.</p>
+</div>
+
+<article>
+  <div class="blog-divider"></div>
+
+  <p>If you've spent any time in AI circles lately, you've heard "RAG" thrown around constantly. It's one of those terms that sounds intimidating but is actually a pretty intuitive idea once you strip the jargon away.</p>
+
+  <p>I'll explain it the way I wish someone had explained it to me before I built ChapterChat.</p>
+
+  <h2>The Problem RAG Solves</h2>
+
+  <p>Large language models — ChatGPT, Claude, llama3 — are trained on enormous amounts of text from the internet. They're impressive at reasoning, writing, and summarizing. But they have a fundamental limitation: <strong>they only know what they were trained on.</strong></p>
+
+  <p>Ask ChatGPT about a document you just uploaded, and it'll do its best — but it's actually guessing based on patterns, not reading your document. Ask it about an event from last week, and it might hallucinate an answer confidently. The model's knowledge is frozen at its training cutoff.</p>
+
+  <p>RAG is the solution. Instead of asking the LLM to answer from memory, you <strong>retrieve the relevant information first</strong>, then hand it to the LLM as context. The LLM isn't guessing anymore — it's reading.</p>
+
+  <h2>The Pipeline, Visualised</h2>
+
+  <div class="pipeline">
+    <div class="pipe-step">
+      <span class="pipe-icon">📄</span>
+      <span class="pipe-label">Document</span>
+      <span class="pipe-desc">Your PDF, text, data</span>
+    </div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step">
+      <span class="pipe-icon">✂️</span>
+      <span class="pipe-label">Chunk</span>
+      <span class="pipe-desc">Split into pieces</span>
+    </div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step">
+      <span class="pipe-icon">🔢</span>
+      <span class="pipe-label">Embed</span>
+      <span class="pipe-desc">Convert to vectors</span>
+    </div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step">
+      <span class="pipe-icon">🗄️</span>
+      <span class="pipe-label">Store</span>
+      <span class="pipe-desc">Vector database</span>
+    </div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step">
+      <span class="pipe-icon">🔍</span>
+      <span class="pipe-label">Retrieve</span>
+      <span class="pipe-desc">Find relevant chunks</span>
+    </div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-step">
+      <span class="pipe-icon">🤖</span>
+      <span class="pipe-label">Generate</span>
+      <span class="pipe-desc">LLM answers</span>
+    </div>
+  </div>
+
+  <h2>Breaking Down Each Step</h2>
+
+  <h3>1 — Chunking</h3>
+  <p>You can't feed an entire 200-page PDF to an LLM at once (context windows have limits, and it's slow and expensive). So you split the document into smaller pieces — "chunks" — of a few hundred words each.</p>
+
+  <pre><code>from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=500,   # ~500 tokens per chunk
+    chunk_overlap=50  # overlap to avoid cut-off answers
+)
+chunks = splitter.split_documents(docs)</code></pre>
+
+  <p>The overlap is critical. If a sentence starts at the end of chunk 3 and finishes at the start of chunk 4, overlap ensures you don't lose that context.</p>
+
+  <h3>2 — Embeddings</h3>
+  <p>An embedding is a list of numbers — a vector — that represents the <em>meaning</em> of a piece of text. The clever part: texts with similar meanings end up with vectors that are mathematically close to each other.</p>
+
+  <p>So "the cat sat on the mat" and "a feline rested on a rug" would have very similar embeddings, even though the words are totally different.</p>
+
+  <pre><code>from langchain.embeddings import HuggingFaceEmbeddings
+
+# Free, runs locally, surprisingly good
+embeddings = HuggingFaceEmbeddings(
+    model_name="all-MiniLM-L6-v2"
+)</code></pre>
+
+  <h3>3 — The Vector Store</h3>
+  <p>All those chunk embeddings need to live somewhere searchable. That's what a vector database does — it stores vectors and lets you find the ones closest to any query vector, extremely fast. I used <strong>ChromaDB</strong> for ChapterChat.</p>
+
+  <pre><code>from langchain.vectorstores import Chroma
+
+vectorstore = Chroma.from_documents(
+    chunks,
+    embeddings,
+    persist_directory="./chroma_db"  # saves to disk
+)</code></pre>
+
+  <h3>4 — Retrieval</h3>
+  <p>When a user asks a question, you embed <em>that question too</em> — and search the vector store for the chunks whose vectors are closest to the question's vector. These are the most semantically relevant chunks.</p>
+
+  <pre><code>retriever = vectorstore.as_retriever(
+    search_kwargs={"k": 4}  # return the top 4 chunks
+)
+
+relevant_chunks = retriever.get_relevant_documents(
+    "What are the main arguments in chapter 3?"
+)</code></pre>
+
+  <h3>5 — Generation</h3>
+  <p>Finally, you hand the retrieved chunks to the LLM as context, and ask it to answer the question. The LLM is now answering from real, specific evidence rather than its training memory.</p>
+
+  <pre><code>from langchain.chains import RetrievalQA
+from langchain.llms import Ollama
+
+llm = Ollama(model="llama3")
+
+qa_chain = RetrievalQA.from_chain_type(
+    llm=llm,
+    retriever=retriever,
+    return_source_documents=True
+)
+
+response = qa_chain({"query": "What are the main arguments in chapter 3?"})
+print(response["result"])</code></pre>
+
+  <h2>Why Not Just Use Fine-Tuning Instead?</h2>
+
+  <p>A common question. Fine-tuning means training the model on your specific data so it "knows" it. RAG means keeping a generic model and retrieving relevant context at query time. Here's when each makes sense:</p>
+
+  <ul>
+    <li><strong>Use RAG when</strong> your knowledge base changes frequently, or when you need citations and traceability. It's cheaper and faster to update.</li>
+    <li><strong>Use fine-tuning when</strong> you need the model to adopt a specific style, tone, or domain-specific reasoning pattern — not just recall facts.</li>
+    <li><strong>Use both when</strong> you have the budget and need both domain adaptation and fresh knowledge retrieval.</li>
+  </ul>
+
+  <div class="callout">
+    <p>💡 For most student projects and early-stage products, <strong>RAG is the right starting point.</strong> It's faster to build, cheaper to run, easier to debug, and you can see exactly what information the model is using to answer.</p>
+  </div>
+
+  <h2>Where to Go Next</h2>
+
+  <p>Once you've got basic RAG working, the two most impactful improvements are:</p>
+
+  <ul>
+    <li><strong>Hybrid search</strong> — combine semantic (vector) retrieval with keyword (BM25) search. Great for queries that include proper nouns, version numbers, or exact terms.</li>
+    <li><strong>Re-ranking</strong> — after initial retrieval, use a second model to score chunks for relevance before passing them to the generator. Measurably improves quality.</li>
+  </ul>
+
+  <p>If you want to go deeper, the LangChain docs and the Hugging Face course on RAG are both excellent. And if you want to see a real implementation, the code for my ChapterChat project is on <a href="https://github.com/DHRITHI-K" target="_blank" style="color:var(--accent2);text-decoration:none;">my GitHub</a>.</p>
+
+  <div class="blog-divider"></div>
+  <p>Got questions? Hit me at <a href="mailto:dhrithik2004@gmail.com" style="color:var(--accent2);text-decoration:none;">dhrithik2004@gmail.com</a> — I'm happy to go deeper on any part of this.</p>
+</article>
+
+<div class="blog-footer">
+  <div class="blog-footer-inner">
+    <div class="author-info">
+      <strong>Dhrithi K</strong>
+      <p>AI/ML Engineer · IIIT Dharwad '26 · Building things in Bengaluru</p>
+    </div>
+    <a href="Dhrithi_Portfolio_Final.html#blog" class="back-link">← All posts</a>
+  </div>
+</div>
+
+<footer><p>Dhrithi K &mdash; dhrithik2004@gmail.com</p></footer>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What No One Tells You About the AI Job Search as a Fresher — Dhrithi K</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0a0a0f; --surface:#12121a; --surface2:#1a1a26; --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.12); --text:#f0efe8; --muted:#8a8a9a; --accent:#7c6af7; --accent2:#4fc3a1; --accent3:#f5845a; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 4rem; background: rgba(10,10,15,0.85); backdrop-filter: blur(16px); border-bottom: 0.5px solid var(--border); }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text); text-decoration: none; }
+  .nav-back { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+  .blog-hero { padding: 9rem 4rem 4rem; max-width: 760px; margin: 0 auto; }
+  .blog-meta-top { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .blog-cat { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 3px; text-transform: uppercase; background: rgba(245,132,90,0.15); color: var(--accent3); }
+  .blog-date, .blog-read-time { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); }
+  .blog-sep { color: var(--border2); }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  .blog-lede { font-size: 1.1rem; color: var(--muted); line-height: 1.75; font-weight: 300; border-left: 2px solid var(--accent3); padding-left: 1.25rem; margin-bottom: 3rem; }
+  .blog-divider { height: 0.5px; background: var(--border); margin: 3rem 0; }
+  article { max-width: 760px; margin: 0 auto; padding: 0 4rem 6rem; }
+  article h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; letter-spacing: -0.02em; margin: 2.5rem 0 1rem; color: var(--text); }
+  article h3 { font-size: 0.8rem; font-weight: 500; margin: 2rem 0 0.6rem; color: var(--accent2); letter-spacing: 0.04em; text-transform: uppercase; }
+  article p { color: var(--muted); font-weight: 300; margin-bottom: 1.2rem; font-size: 0.97rem; line-height: 1.85; }
+  article p strong { color: var(--text); font-weight: 500; }
+  article ul, article ol { color: var(--muted); font-weight: 300; font-size: 0.97rem; line-height: 1.85; margin-bottom: 1.2rem; padding-left: 1.5rem; }
+  article li { margin-bottom: 0.5rem; }
+  article li strong { color: var(--text); font-weight: 500; }
+  .callout { background: var(--surface); border: 0.5px solid var(--border2); border-left: 3px solid var(--accent3); border-radius: 0 10px 10px 0; padding: 1.1rem 1.4rem; margin: 1.5rem 0; }
+  .callout p { margin: 0; font-size: 0.92rem; }
+  .honest-box { background: var(--surface2); border: 0.5px solid var(--border2); border-radius: 12px; padding: 1.4rem 1.6rem; margin: 2rem 0; }
+  .honest-box .label { font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent3); margin-bottom: 0.5rem; }
+  .honest-box p { margin: 0; font-size: 0.92rem; }
+  .blog-footer { max-width: 760px; margin: 0 auto; padding: 0 4rem 6rem; }
+  .blog-footer-inner { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .author-info p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+  .author-info strong { color: var(--text); font-size: 0.92rem; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--accent); text-decoration: none; border: 0.5px solid rgba(124,106,247,0.3); padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.2s; }
+  .back-link:hover { background: rgba(124,106,247,0.1); }
+  footer { text-align: center; padding: 2rem 4rem; border-top: 0.5px solid var(--border); color: var(--muted); font-size: 0.8rem; }
+  @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .blog-hero, article, .blog-footer { padding-left: 1.5rem; padding-right: 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="Dhrithi_Portfolio_Final.html" class="nav-logo">DK</a>
+  <a href="Dhrithi_Portfolio_Final.html#blog" class="nav-back">← Back to portfolio</a>
+</nav>
+
+<div class="blog-hero">
+  <div class="blog-meta-top">
+    <span class="blog-cat">Journey</span>
+    <span class="blog-sep">·</span>
+    <span class="blog-date">June 2026</span>
+    <span class="blog-sep">·</span>
+    <span class="blog-read-time">6 min read</span>
+  </div>
+  <h1>What No One Tells You About the AI Job Search as a Fresher</h1>
+  <p class="blog-lede">I applied to Deloitte, Cognizant, CGI, and a handful of Bengaluru AI startups — all without internship experience. Here's what actually worked, what I wish I'd known earlier, and the mindset shift that changed everything.</p>
+</div>
+
+<article>
+  <div class="blog-divider"></div>
+
+  <p>The most common advice for freshers is "get an internship." Great advice. Slightly useless if you're already in final year and the deadline is now. So I want to talk about what you actually do when you're in that position — shipping projects, applying to places, and trying to stand out without a FAANG internship on your resume.</p>
+
+  <p>This isn't a success story yet. I'm still in it. But I've learned enough in the past few months to write something honest about the process.</p>
+
+  <h2>The Honest Reality of Applying Without Internships</h2>
+
+  <p>Most AI/ML job postings say "1–2 years of experience required." Most freshers read this and apply anyway, or don't apply at all. I think the right move is more nuanced than either.</p>
+
+  <p>What companies actually mean varies a lot. A startup with 20 people saying "1 year experience" is often just saying "please know what you're doing." A large firm saying the same thing might mean it literally. The trick is figuring out which is which — and then making your projects do the talking.</p>
+
+  <div class="honest-box">
+    <div class="label">Honest moment</div>
+    <p>I got rejected from Deloitte USI campus drive. I went through the full process — online assessment, multiple rounds — and didn't make it through. It stung. But the prep I did for it meant I was ready for every other interview I walked into after that. The work compounds even when the outcome doesn't go your way.</p>
+  </div>
+
+  <h2>What Actually Helped</h2>
+
+  <h3>1. Projects with real technical depth</h3>
+  <p>Not projects where you followed a tutorial. Projects where you made architecture decisions, hit a wall, debugged it, and came out the other side with something that actually works. Interviewers can tell the difference in about two minutes of conversation.</p>
+
+  <p>My ChapterChat project — a RAG chatbot built with LangChain, ChromaDB, and a locally-run LLM — gave me something specific to talk about in every technical interview. Not "I built an AI chatbot" but "I chose to run llama3 locally via Ollama instead of OpenAI because X, and here's what the trade-off was."</p>
+
+  <h3>2. Forage simulations</h3>
+  <p>I completed virtual experience programs with <strong>Lloyds Banking Group</strong> (Data Science) and <strong>Deloitte Australia</strong> (Cybersecurity) through Forage. These are free, certificate-bearing, and taken seriously by recruiters — especially at the companies that run them. They show initiative and give you something concrete to put under Certifications beyond coursework.</p>
+
+  <h3>3. Treating the resume as a living document</h3>
+  <p>I used to have one resume I sent everywhere. Now I tailor the skills section and the project order based on what each role cares about. For a pure AI/ML role, ChapterChat goes first. For a more general SWE role, the Virtual Study Room (WebRTC, full-stack) comes up. Same projects, different emphasis.</p>
+
+  <h3>4. Preparing 30 minutes before, not 30 days before</h3>
+  <p>I had one interview — Zephvion — that I found out about with less than an hour's notice. I had thirty minutes to prepare. The thing that saved me was that I actually <em>knew</em> my projects. Because I'd built them myself, from scratch, and could talk about every decision I'd made. There's no substitute for genuinely understanding what you've built.</p>
+
+  <div class="callout">
+    <p>💡 <strong>The test I use:</strong> Can you explain your project's architecture out loud, in five minutes, without looking at any notes? If yes, you're ready to interview on it. If not, spend more time with it before you apply.</p>
+  </div>
+
+  <h2>The Mindset That Changed Things</h2>
+
+  <p>Early in my job search, I was treating every rejection as evidence that I wasn't good enough. That's the wrong frame. The right frame is: <strong>every application is a data point that helps you calibrate your targeting.</strong></p>
+
+  <p>If you're getting to interviews but not converting, it's a skills or communication problem — fixable. If you're not getting interviews at all, it's a resume or targeting problem — also fixable. Neither means you're not good enough. Both mean there's something specific to work on.</p>
+
+  <h2>What I'm Doing Now</h2>
+
+  <p>Two things in parallel. First, continuing to apply — I'm targeting Bengaluru AI startups and staying active on LinkedIn. Second, building — the two apps I'm developing right now (Subscription Graveyard and Neighborhood Lending Library) are partly for the market and partly to keep sharpening my skills while I wait.</p>
+
+  <p>The best thing you can do while job hunting is make sure that every week, you're a slightly better engineer than you were the week before. The job will come. The skills compound either way.</p>
+
+  <div class="blog-divider"></div>
+  <p>If you're going through the same thing, my inbox is always open — <a href="mailto:dhrithik2004@gmail.com" style="color:var(--accent3);text-decoration:none;">dhrithik2004@gmail.com</a>. Happy to talk through resumes, prep, or just what it feels like to be in the thick of it.</p>
+</article>
+
+<div class="blog-footer">
+  <div class="blog-footer-inner">
+    <div class="author-info">
+      <strong>Dhrithi K</strong>
+      <p>AI/ML Engineer · IIIT Dharwad '26 · Building things in Bengaluru</p>
+    </div>
+    <a href="Dhrithi_Portfolio_Final.html#blog" class="back-link">← All posts</a>
+  </div>
+</div>
+
+<footer><p>Dhrithi K &mdash; dhrithik2004@gmail.com</p></footer>
+</body>
+</html>
